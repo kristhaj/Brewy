@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Header } from 'react-native';
+import Recipe from './Components/recipe';
 
 export default function App() {
   return (
@@ -8,6 +9,9 @@ export default function App() {
         <Text style={styles.title}>BREWY</Text>
       </View>
       <View style={styles.content}>
+        <View>
+          <Recipe />
+        </View>
         <View style={styles.placeholder}>
           <Text style={styles.placeholderText}>Amizing Brewing Tool To Be Implemented</Text>
         </View>

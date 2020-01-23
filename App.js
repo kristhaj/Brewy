@@ -9,11 +9,11 @@ export default function App() {
         <Text style={styles.title}>BREWY</Text>
       </View>
       <View style={styles.content}>
-        <View>
-          <Recipe />
-        </View>
         <View style={styles.placeholder}>
-          <Text style={styles.placeholderText}>Amizing Brewing Tool To Be Implemented</Text>
+          <Text style={styles.placeholderText}>Amazing Brewing Tool To Be Implemented</Text>
+        </View>
+        <View style={styles.recipeContainer}>
+          <Recipe />
         </View>
       </View>
     </View>
@@ -42,17 +42,27 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 50,
+    padding: 50,
     alignItems: 'center',
     justifyContent: 'center'
   },
   placeholder: {
+    flex: 2,
     backgroundColor: '#ef8354',
-    padding: 20,
+    padding: 10,
     alignItems: 'center',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    
   },
   placeholderText: {
     color: '#fff',
     fontSize: 15,
+  },
+  recipeContainer: {
+    flex: 10,
+    padding: 30,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+
   }
 });

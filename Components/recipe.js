@@ -7,19 +7,11 @@ import RecipeStore from '../Stores/RecipeStore';
 @observer
 class Recipe extends Component {
 
-    state = {
-        modalVisible: false
-    }
-
-    setModalVisible(visible) {
-        this.setSate({modalVisible: visible})
-    }
-
     handleAddRecipe() {
         const RecipeStore = this.props.RecipeStore;
         RecipeStore.setTargetID("");
         RecipeStore.fetchRecipeDataAsync(0);
-        this.setModalVisible(false);
+        RecipeStore.setModalVisible(false);
     }
 
     render() {
@@ -28,9 +20,9 @@ class Recipe extends Component {
                 <Button 
                 style={styles.viewInput} 
                 title="Add Recipe" 
-                onPress={() => this.setModalVisible(true)}
+                onPress={() => RecipeStore.setModalVisible(true)}
                 />
-                <Modal visible={this.state.modalVisible}> 
+                <Modal visible={RecipeStore.getModalVisible}> 
                     <View style={styles.recipeContainer}>
                         <TextInput style={styles.recipeInput}>
 
@@ -44,7 +36,7 @@ class Recipe extends Component {
                             <Button 
                             style={styles.cancelButton}
                             title="Cancel"
-                            onPress={() => this.setModalVisible(false)}
+                            onPress={() => RecipeStore.setModalVisible(false)}
                             />
                         </View>
                     </View>

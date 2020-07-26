@@ -1,15 +1,27 @@
-import { observable , action, runInAction } from 'mobx';
+import { observable , action, runInAction, computed } from 'mobx';
 
 class RecipeStore {
     @observable recipes = [];
     @observable recipeIDList = [];
     @observable URL;
     @observable state = "pending"; // "pending" / "done" / "error"
+    @observable modalVisible;
 
     constructor() {
         //api endpoint for getting a single recipe
         this.URL = "https://api.brewersfriend.com/v1/recipes/";
+        this.modalVisible = false;
     }
+
+    @action setModalVisible = (visible) => {
+        this.modalVisible = visible;
+    }
+
+    @computed get getModalVisible() {
+        return this.modalVisible;
+    }
+    
+
 
     @action
     async fetchRecipeDataAsync(recipeIDindex) {

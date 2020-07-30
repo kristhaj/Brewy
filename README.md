@@ -8,13 +8,14 @@ Importing beer recipes from the Internet, and using the data to view the recipes
 
 TODO:
 
+- Complete fetching of data from API
 - Clean view of recipe data relevant to brew day (i.e. measurements, mash time, boil time, etc.)
 - Create timer with multiple timestamps (set one timer which will give a notification when each amount of hops is added to boil)
 
 DONE:
 
 ## Integration
-Currently supports integration with the API of https://brewersfriend.com
+Currently intends to support integration with the API of https://brewersfriend.com
 
 API Documentation can be found at https://docs.brewersfriend.com/api
 

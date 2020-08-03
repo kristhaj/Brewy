@@ -21,6 +21,9 @@ class RecipeStore {
         return this.modalVisible;
     }
     
+    @computed get getConState() {
+        return  this.state;
+    }
 
 
     @action

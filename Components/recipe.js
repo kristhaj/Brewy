@@ -22,12 +22,26 @@ class Recipe extends Component {
                 title="Add Recipe" 
                 onPress={() => RecipeStore.setModalVisible(true)}
                 />
-                <Modal visible={RecipeStore.getModalVisible}> 
-                    <View style={styles.recipeContainer}>
-                        <TextInput style={styles.recipeInput}>
 
-                        </TextInput>
-                        <View> style={styles.buttonContainer}
+                <View style={styles.conState}>
+                    <Text>
+                        Connection status: {RecipeStore.getConState}
+                    </Text>
+                </View>
+
+                <Modal 
+                animationType="slide"
+                visible={RecipeStore.getModalVisible}
+                >
+                    <View styles={styles.modalView}>
+                        <View style={styles.recipeContainer}>
+                            <TextInput 
+                            style={styles.recipeInput}
+                            value="Enter URL of the recipe">
+
+                            </TextInput>
+                        </View>
+                        <View style={styles.buttonContainer}> 
                             <Button
                             style={styles.addButton}
                             title="Save"
@@ -39,6 +53,7 @@ class Recipe extends Component {
                             onPress={() => RecipeStore.setModalVisible(false)}
                             />
                         </View>
+
                     </View>
                 </Modal>
             </View>
@@ -50,27 +65,30 @@ const styles = new StyleSheet.create({
     container: {
         flex: 1
     },
+    modalView : {
+        flexDirection: 'column',
+        
+    },
     recipeContainer: {
-        flex: 1,
+        flex: 2,
         padding: 20,
-        height: '30%',
+        backgroundColor: '#fff'
     },
     viewInput: {
         padding: 10,
-        backgroundColor: "#ef8354",
         color: '#fff'
     },
     recipeInput: {
-        flex: 2,
         borderWidth: 1, 
         borderColor: '#4f5d75'
     },
     buttonContainer: {
         flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        padding: 50
     },
     addButton: {
+        flexDirection: 'row',
         flex: 1,
         padding: 10,
         backgroundColor: "#ef8354",
@@ -79,10 +97,15 @@ const styles = new StyleSheet.create({
     cancelButton: {
         flex: 1,
         padding: 10,
+        height: 50,
         color: "#4f5d75",
         borderWidth: 1,
         borderColor: '#4f5d75',
         backgroundColor: '#fff'
+    },
+    conState: {
+        flex: 1,
+        padding: 20
     }
 
 });

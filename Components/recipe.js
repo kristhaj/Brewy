@@ -22,38 +22,32 @@ class Recipe extends Component {
                 title="Add Recipe" 
                 onPress={() => RecipeStore.setModalVisible(true)}
                 />
-
                 <View style={styles.conState}>
                     <Text>
                         Connection status: {RecipeStore.getConState}
                     </Text>
                 </View>
-
                 <Modal 
                 animationType="slide"
-                visible={RecipeStore.getModalVisible}
-                >
-                    <View styles={styles.modalView}>
-                        <View style={styles.recipeContainer}>
-                            <TextInput 
-                            style={styles.recipeInput}
-                            value="Enter URL of the recipe">
-
-                            </TextInput>
-                        </View>
-                        <View style={styles.buttonContainer}> 
-                            <Button
-                            style={styles.addButton}
-                            title="Save"
-                            onPress={() => this.handleAddRecipe()}
-                            />
-                            <Button 
-                            style={styles.cancelButton}
-                            title="Cancel"
-                            onPress={() => RecipeStore.setModalVisible(false)}
-                            />
-                        </View>
-
+                visible={RecipeStore.getModalVisible}>
+                    <View style={styles.recipeContainer}>
+                        <Text>Enter URL of recipe:</Text>
+                        <TextInput 
+                        style={styles.recipeInput}
+                        >
+                        </TextInput>
+                    </View>
+                    <View style={styles.buttonContainer}> 
+                        <Button
+                        style={styles.addButton}
+                        title="Save"
+                        onPress={() => this.handleAddRecipe()}
+                         />
+                        <Button 
+                        style={styles.cancelButton}
+                        title="Cancel"
+                        onPress={() => RecipeStore.setModalVisible(false)}
+                        />
                     </View>
                 </Modal>
             </View>
@@ -65,13 +59,10 @@ const styles = new StyleSheet.create({
     container: {
         flex: 1
     },
-    modalView : {
-        flexDirection: 'column',
-        
-    },
     recipeContainer: {
-        flex: 2,
+        flex: 15,
         padding: 20,
+        paddingTop: 60,
         backgroundColor: '#fff'
     },
     viewInput: {
@@ -84,20 +75,18 @@ const styles = new StyleSheet.create({
     },
     buttonContainer: {
         flex: 1,
+        flexDirection: "row-reverse",
         justifyContent: 'space-between',
         padding: 50
     },
     addButton: {
         flexDirection: 'row',
         flex: 1,
-        padding: 10,
         backgroundColor: "#ef8354",
         color: '#fff'
     },
     cancelButton: {
         flex: 1,
-        padding: 10,
-        height: 50,
         color: "#4f5d75",
         borderWidth: 1,
         borderColor: '#4f5d75',
